@@ -4,7 +4,11 @@ import { Server } from "socket.io";
 import cors from "cors";
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "https://grid-game-gules.vercel.app",
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 const server = http.createServer(app);
 
 const io = new Server(server, {

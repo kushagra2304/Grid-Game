@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import { Users, Grid as GridIcon, Zap } from "lucide-react";
 
-const socket = io("http://localhost:3001");
+const socket = io("https://grid-game-zrhg.onrender.com");
 
 export default function Grid() {
   const [grid, setGrid] = useState<string[][]>([]);
