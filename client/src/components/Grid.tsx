@@ -24,8 +24,6 @@ export default function Grid() {
     socket.on("grid-update", (data) => setGrid(data));
     socket.on("online-count", (count) => setOnline(count));
     socket.on("history-update", (data) => setHistory(data));
-
-    // Request history if reconnects happen
     socket.emit("get-history");
 
     return () => {
@@ -46,7 +44,6 @@ export default function Grid() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 flex items-center justify-center p-8">
       <div className="w-full max-w-3xl">
-        {/* Header */}
         <div className="bg-white rounded-2xl shadow-xl p-6 mb-6 border border-gray-100">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
@@ -76,7 +73,6 @@ export default function Grid() {
           )}
         </div>
 
-        {/* Grid */}
         <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
           <div
             className="grid gap-2 mx-auto"
@@ -116,7 +112,6 @@ export default function Grid() {
             )}
           </div>
 
-          {/* Hint text */}
           {!disabled && (
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-500">
@@ -126,7 +121,6 @@ export default function Grid() {
           )}
         </div>
 
-        {/* History section */}
         <div className="mt-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100">
           <button
             onClick={() => setShowHistory(!showHistory)}
